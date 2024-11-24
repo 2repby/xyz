@@ -47,8 +47,8 @@ class ItemController extends Controller
         ]);
         $item= new Item($validated);
         $item->save();
-        return redirect('/item')->with('message',
-            'Товар был успешно добавлен');;
+        return redirect('/item')->withErrors(['success' =>
+            'Товар был успешно добавлен']);
     }
 
     /**

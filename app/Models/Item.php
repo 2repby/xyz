@@ -14,6 +14,7 @@ class Item extends Model
         'name',
         'price',
         'category_id',
+        'picture_url',
     ];
     public function category(): BelongsTo
     {

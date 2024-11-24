@@ -1,8 +1,9 @@
 @extends('layout')
 @section('content')
     @parent
-    <h2>Список товаров</h2>
-    <table border="1">
+    <div class="container">
+    <h2 class="m-3">Список товаров</h2>
+    <table class="table m-3">
         <thead>
         <td>id</td>
         <td>Наименование</td>
@@ -22,7 +23,10 @@
             </tr>
         @endforeach
     </table>
+
+    <div class="d-flex justify-content-center mt-4">
     {{ $items->links() }}
-    <p>This is appended to the master sidebar.</p>
+    </div>
+    </div>
 @endsection
 

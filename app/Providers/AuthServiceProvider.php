@@ -3,7 +3,11 @@
 namespace App\Providers;
 
 // use Illuminate\Support\Facades\Gate;
+use App\Models\Item;
+use App\Models\User;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\Gate;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -21,6 +25,15 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        $this->registerPolicies();
+        Paginator::defaultView('pagination::bootstrap-4');
+
+        Gate::define('destroy-item', function (User $user, Item $item) {
+            return $user->is_admin OR $item->price < 1000;
+        });
+
+        Gate::define('create-category', function (User $user) {
+            return true;
+        });
     }
 }
