@@ -44,9 +44,38 @@
             </div>
             @enderror
         </div>
+        <div class="mb-3">
+            <label for="datetimepicker" class="form-label">Select Date and Time:</label>
+            <div class="input-group" id="datetimepicker">
+                <input type="text" class="form-control" />
+                <span class="input-group-text">
+                <i class="bi bi-calendar-event"></i>
+            </span>
+            </div>
+        </div>
         <button type="submit" class="btn btn-primary">Добавить</button>
     </form>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const datetimepicker = new tempusDominus.TempusDominus(
+                document.getElementById('datetimepicker'),
+                {
+                    display: {
+                        components: {
+                            calendar: true,
+                            date: true,
+                            month: true,
+                            year: true,
+                            hours: true,
+                            minutes: true,
+                            seconds: false
+                        }
+                    }
+                }
+            );
+        });
+    </script>
 </div>
 @endsection
 

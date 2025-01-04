@@ -98,6 +98,7 @@ class ItemController extends Controller
                 'У вас нет разрешения на удаление товара номер ' . $id);
         }
         Item::destroy($id);
-        return redirect('/item');
+        return redirect('/item')->withErrors('message',
+            'Товар ' . $id . ' был успешно удален');
     }
 }
