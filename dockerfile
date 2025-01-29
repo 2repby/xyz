@@ -10,3 +10,5 @@ RUN docker-php-ext-install pdo pdo_mysql gd
 COPY . .
 
 RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
+
+CMD ["php-fpm"]
