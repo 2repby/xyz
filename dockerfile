@@ -18,5 +18,5 @@ RUN composer install
 RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
 
 # Запускаем PHP-FPM
+EXPOSE 9000
 CMD ["php-fpm"]
-RUN sed -i 's/listen = 127.0.0.1:9000/listen = 0.0.0.0:9000/' /usr/local/etc/php-fpm.d/www.conf
