@@ -17,8 +17,5 @@ RUN composer install
 # Устанавливаем права на папку storage
 RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
 
-# Звпускаем веб-сервер
-CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8000"]
-
 # Запускаем PHP-FPM
-#CMD ["php-fpm"]
+CMD ["php-fpm"]
