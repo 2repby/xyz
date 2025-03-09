@@ -72,7 +72,8 @@ class CategoryControllerApi extends Controller
      */
     public function show(string $id)
     {
-        return response(Category::find($id));
+        $category = Category::find($id);
+        return response([$category, $category->items->all()], );
     }
 
     /**

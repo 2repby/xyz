@@ -18,7 +18,8 @@ class ItemController extends Controller
     {
         $perpage = $request->perpage ?? 2;
         return view('items', [
-            'items' => Item::paginate($perpage)->withQueryString()
+//            'items' => Item::paginate($perpage)->withQueryString()
+        'items' => Item::all()
         ]);
     }
     // How to solve n+1 problem:
