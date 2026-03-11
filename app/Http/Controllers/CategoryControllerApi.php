@@ -72,10 +72,9 @@ class CategoryControllerApi extends Controller
      */
     public function show(string $id)
     {
-        $category = Category::find($id);
-        return response([$category, $category->items->all()], );
+        return response( Category::with('items')->find($id));
     }
-
+    
     /**
      * Update the specified resource in storage.
      */

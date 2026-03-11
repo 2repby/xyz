@@ -9,9 +9,20 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
+
+
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle active" aria-current="page" data-bs-toggle="dropdown"
-                           href={{url('item')}}>Товары</a>
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdown01">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </li>
+
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href={{url('item')}} id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Товары</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href={{url('item')}}>Все товары</a></li>
                             <li><a class="dropdown-item" href={{url('item/create')}}>Добавить товар</a></li>
@@ -21,6 +32,9 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Заказы</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href={{url('item')}}>Товары тест</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link disabled" aria-disabled="true">Покупатели</a>

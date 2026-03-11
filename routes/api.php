@@ -32,7 +32,7 @@ Route::get('/categories_total', [CategoryControllerApi::class, 'total']);
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-
+//Route::get('/item', [ItemControllerApi::class, 'index']);
 
 Route::middleware('auth:sanctum')->get('/logout', [AuthController::class, 'logout']);
 

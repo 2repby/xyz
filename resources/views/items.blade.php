@@ -3,7 +3,7 @@
     @parent
     <div class="container">
     <h2 class="m-3">Список товаров</h2>
-    <table class="table m-3">
+    <table class="table m-3 table-hover">
         <thead>
         <td>id</td>
         <td>Наименование</td>
@@ -23,10 +23,7 @@
             </tr>
         @endforeach
     </table>
-
-    <div class="d-flex justify-content-center mt-4">
-    {{ $items->links() }}
-    </div>
+        {{ $items->links() }}
     </div>
 @endsection
 

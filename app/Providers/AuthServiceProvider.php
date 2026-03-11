@@ -33,7 +33,7 @@ class AuthServiceProvider extends ServiceProvider
         });
 
         Gate::define('create-category', function (User $user) {
-            return true;
+            return $user->is_admin;
         });
     }
 }

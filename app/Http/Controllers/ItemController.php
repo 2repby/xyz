@@ -18,8 +18,8 @@ class ItemController extends Controller
     {
         $perpage = $request->perpage ?? 2;
         return view('items', [
-//            'items' => Item::paginate($perpage)->withQueryString()
-        'items' => Item::all()
+            'items' => Item::paginate($perpage)->withQueryString()
+//        'items' => Item::all()
         ]);
     }
     // How to solve n+1 problem:
@@ -95,11 +95,11 @@ class ItemController extends Controller
     public function destroy(string $id)
     {
         if (! Gate::allows('destroy-item', Item::all()->where('id', $id)->first())) {
-            return redirect('/')->with('message',
-                'У вас нет разрешения на удаление товара номер ' . $id);
+            return redirect('/item')->withErrors(['error' =>
+                'У вас нет разрешения на удаление товара номер ' . $id]);
         }
         Item::destroy($id);
-        return redirect('/item')->withErrors('message',
-            'Товар ' . $id . ' был успешно удален');
+        return redirect('/item')->withErrors(['success' =>
+            'Товар ' . $id . ' был успешно удален']);
     }
 }
