@@ -1,6 +1,7 @@
 @if ($paginator->hasPages())
+    <div class="d-flex justify-content-between mb-3">
     <nav>
-        <ul class="pagination">
+        <ul class="pagination mb-0">
             {{-- Previous Page Link --}}
             @if ($paginator->onFirstPage())
                 <li class="page-item disabled" aria-disabled="true" aria-label="@lang('pagination.previous')">
@@ -41,6 +42,19 @@
                     <span class="page-link" aria-hidden="true">&rsaquo;</span>
                 </li>
             @endif
+
         </ul>
+
     </nav>
+        <!-- Форма для выбора количества элементов -->
+        <form method="get" class="d-flex align-items-center" action={{url('item')}} >
+            <label for="itemsPerPage" class="me-2 mb-0">Элементов на странице:</label>
+            <select name="perpage" class="form-select w-auto me-2">
+                <option value="2" @if($paginator->perPage() == 2) selected @endif >2</option>
+                <option value="3" @if($paginator->perPage() == 3) selected @endif >3</option>
+                <option value="4" @if($paginator->perPage() == 4) selected @endif >4</option>
+            </select>
+            <button type="submit" class="btn btn-primary">Изменить</button>
+        </form>
+    </div>
 @endif

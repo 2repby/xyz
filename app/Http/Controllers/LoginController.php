@@ -31,7 +31,7 @@ class LoginController extends Controller
         ]);
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->intended('/')->withErrors([
+                return redirect()->intended('/')->withErrors([
                 'success' => 'Вы успешно вошли в систему',
                 ]);
         }

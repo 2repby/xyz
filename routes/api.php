@@ -32,7 +32,7 @@ Route::get('/categories_total', [CategoryControllerApi::class, 'total']);
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-
+//Route::get('/item', [ItemControllerApi::class, 'index']);
 
 Route::middleware('auth:sanctum')->get('/logout', [AuthController::class, 'logout']);
 
@@ -44,6 +44,9 @@ Route::group(['middleware' => ['auth:sanctum']],  function (){
     Route::get('/logout', [AuthController::class, 'logout']);
     Route::post('/item', [ItemControllerApi::class, 'store']);
     Route::post('/category', [CategoryControllerApi::class, 'store']);
+    Route::delete('/category/{id}', [CategoryControllerApi::class, 'destroy']);
+    Route::post('/category/{id}', [CategoryControllerApi::class, 'update']);
+
 });
 
 
